@@ -8,7 +8,11 @@
 
 #import "ViewController.h"
 
+#import "CYPageControl.h"
+
 @interface ViewController ()
+
+@property (nonatomic, weak)CYPageControl *pageControl;
 
 @end
 
@@ -16,12 +20,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    CYPageControl *pageControl = [[CYPageControl alloc] initWithFrame:CGRectMake(150, 300, 80, 30)];
+    pageControl.numberOfPages = 5;
+    pageControl.currentCount = 0;
+    pageControl.pageSize = CGSizeMake(5, 5);
+    [self.view addSubview:pageControl];
+    _pageControl = pageControl;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)click:(id)sender {
+    
+    if (_pageControl.currentCount==4) return;
+    _pageControl.currentCount ++;
+    
 }
+
+- (IBAction)sub:(id)sender {
+    
+    if (_pageControl.currentCount==0) return;
+    _pageControl.currentCount --;
+    
+}
+
 
 @end
