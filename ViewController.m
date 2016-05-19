@@ -24,7 +24,6 @@
     CYPageControl *pageControl = [[CYPageControl alloc] initWithFrame:CGRectMake(150, 300, 80, 30)];
     pageControl.numberOfPages = 5;
     pageControl.currentCount = 0;
-    pageControl.pageSize = CGSizeMake(5, 5);
     [self.view addSubview:pageControl];
     _pageControl = pageControl;
     
